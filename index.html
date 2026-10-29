@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Café com Homens de Deus | Livros</title>
+<meta name="description" content="Leitor de livros do Café com Homens de Deus">
+<meta name="theme-color" content="#2b1d14">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/android-chrome-192x192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="claro">
+
+<!-- Biblioteca -->
+<main id="library" class="view">
+  <header class="lib-head">
+    <h1>Café com Homens de Deus</h1>
+    <p>Biblioteca</p>
+  </header>
+  <div id="books" class="books" aria-live="polite"></div>
+  <p id="lib-status" class="status"></p>
+</main>
+
+<!-- Leitor -->
+<section id="reader" class="view hidden">
+  <header class="bar top">
+    <button id="btn-back" aria-label="Voltar à biblioteca">‹</button>
+    <div id="book-title" class="title"></div>
+    <button id="btn-mark" aria-label="Marcar página">☆</button>
+    <button id="btn-menu" aria-label="Sumário e marcadores">☰</button>
+    <button id="btn-settings" aria-label="Ajustes de leitura">Aa</button>
+  </header>
+
+  <div id="stage">
+    <div id="viewer"></div>
+    <button id="prev" class="nav-zone left" aria-label="Página anterior"></button>
+    <button id="next" class="nav-zone right" aria-label="Próxima página"></button>
+    <div id="loading" class="loading">Carregando livro…</div>
+  </div>
+
+  <footer class="bar bottom">
+    <div id="progress-text">0%</div>
+    <input id="progress" type="range" min="0" max="100" value="0" aria-label="Progresso">
+    <button id="btn-today" class="today hidden">Hoje</button>
+  </footer>
+
+  <div id="sel-bar" class="sel-bar hidden">
+    <button id="btn-highlight">Destacar</button>
+    <button id="btn-sel-cancel">Cancelar</button>
+  </div>
+</section>
+
+<!-- Painel lateral -->
+<aside id="drawer" class="drawer hidden" aria-label="Sumário">
+  <div class="drawer-head">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="toc">Sumário</button>
+      <button class="tab" data-tab="marks">Marcadores</button>
+      <button class="tab" data-tab="hl">Destaques</button>
+    </div>
+    <button id="drawer-close" aria-label="Fechar">✕</button>
+  </div>
+  <div id="drawer-body" class="drawer-body"></div>
+</aside>
+
+<!-- Ajustes -->
+<div id="settings" class="settings hidden">
+  <div class="row">
+    <span>Tamanho</span>
+    <button id="font-minus" aria-label="Diminuir">A−</button>
+    <span id="font-val">100%</span>
+    <button id="font-plus" aria-label="Aumentar">A+</button>
+  </div>
+  <div class="row">
+    <span>Tema</span>
+    <button class="theme-btn" data-theme="claro">Claro</button>
+    <button class="theme-btn" data-theme="sepia">Sépia</button>
+    <button class="theme-btn" data-theme="escuro">Escuro</button>
+  </div>
+  <div class="row">
+    <span>Fonte</span>
+    <button class="font-btn" data-font="serif">Serifada</button>
+    <button class="font-btn" data-font="sans">Sem serifa</button>
+  </div>
+</div>
+<div id="scrim" class="scrim hidden"></div>
+
+<script src="vendor/jszip.min.js"></script>
+<script src="vendor/epub.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
