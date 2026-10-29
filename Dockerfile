@@ -4,3 +4,4 @@ COPY index.html app.js config.js style.css sw.js manifest.webmanifest /usr/share
 COPY icons /usr/share/nginx/html/icons
 COPY vendor /usr/share/nginx/html/vendor
 EXPOSE 80
+ 
