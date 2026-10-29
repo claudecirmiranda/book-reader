@@ -10,8 +10,9 @@ PWA estático (epub.js + JSZip, copiados em `vendor/`). Não precisa de backend 
 ## Publicar
 1. Hospedagem PHP: enviar `public_html/api/books.php` e os `.epub` para `public_html/uploads/books/`.
 2. VPS (container): `git clone https://github.com/claudecirmiranda/book-reader.git && cd book-reader && docker compose up -d --build`.
-   O container serve o site na porta 80 (publicada como 8080 no compose). Atualizar: `git pull && docker compose up -d --build`.
-3. DNS: registro `book` apontando para o IP da VPS. O HTTPS (obrigatório para service worker e PWA) fica no proxy reverso que já recebe os domínios.
+   O container serve o site na porta 80 e o Traefik publica `book.cafecomhomensdedeus.com.br` por HTTPS (labels no compose; 127.0.0.1:8080 só para teste). Atualizar: `git pull && docker compose up -d --build`.
+3. DNS: registro `book` apontando para o IP da VPS. O HTTPS (obrigatório para service worker e PWA) é do Traefik da VPS, com Let's Encrypt.
+   Se outro container já atende esse host, pare-o antes (`docker stop <nome>`), senão os dois disputam o mesmo domínio.
 
 Sem Docker, qualquer servidor estático serve: o `nginx.conf` deste repositório mostra os cabeçalhos de cache necessários.
 

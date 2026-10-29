@@ -4,4 +4,10 @@ services:
     container_name: book-reader
     restart: unless-stopped
     ports:
-      - "8080:80"   # troque conforme o seu proxy reverso (HTTPS fica no proxy) 
+      - "127.0.0.1:8080:80"   # só para teste local na VPS; o acesso público passa pelo Traefik
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.book-reader.entrypoints=websecure
+      - traefik.http.routers.book-reader.rule=Host(`book.cafecomhomensdedeus.com.br`)
+      - traefik.http.routers.book-reader.tls.certresolver=letsencrypt
+      - traefik.http.services.book-reader.loadbalancer.server.port=80
