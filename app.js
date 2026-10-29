@@ -127,7 +127,10 @@
         'p, .corpo p, .mes-texto p': { 'color': t.mute + ' !important' },
         '.versiculo, .leitura': { 'background': t.box + ' !important' },
         '.vtexto, .mes-versiculo': { 'color': t.fg + ' !important' },
-        '.titulo, .vref, .mes-nome, .mes-ref, .capitular, .capa h1, .capa .autor, .mes-assinatura, .leitura': { 'color': t.head + ' !important' }
+        '.titulo, .vref, .mes-nome, .mes-ref, .capitular, .capa h1, .capa .autor, .mes-assinatura, .leitura': { 'color': t.head + ' !important' },
+        // tarja azul da frase do dia: texto, número e linha sempre brancos
+        '.frase-box p.frase, .frase-box p.indice': { 'color': '#ffffff !important' },
+        '.frase-box p.indice': { 'border-top': '1px solid rgba(255,255,255,.55) !important' }
       });
     });
     applyReaderPrefs();
